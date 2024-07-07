@@ -1,3 +1,4 @@
-Django>=2.2,<4.0   # Ajusta la versión según la compatibilidad requerida
-pandas>=1.0
-django-bootstrap5   # Suponiendo que estás usando la integración de Bootstrap 5 para Django
+Django==4.2.13  # Asegúrate de poner la versión correcta que estás utilizando
+pandas==2.2.2  # Asegúrate de poner la versión correcta que estás utilizando
+gspread==3.7.0
+oauth2client==4.1.3npm show bootstrap version

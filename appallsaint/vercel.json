@@ -2,15 +2,22 @@
     "version": 2,
     "builds": [
       {
-        "src": "api/wsgi.py",
-        "use": "@vercel/python"
+        "src": "manage.py",  // Ruta relativa al archivo manage.py dentro de tu repositorio
+        "use": "@vercel/python"  // Usamos el ambiente de Python de Vercel
       }
     ],
     "routes": [
-      { "handle": "filesystem" },
       {
-        "src": "/(.*)",
-        "dest": "api/wsgi.py"
+        "src": "/api/menu/(.*)",  // Ruta pública para la API de menú
+        "dest": "/api/menu/$1"  // Destino interno de la API de menú
+      },
+      {
+        "src": "/(.*)",  // Captura todas las otras rutas
+        "dest": "/index.html"  // Puedes cambiar "/index.html" según la configuración de tu proyecto
       }
-    ]
+    ],
+    "env": {
+      "SECRET_KEY": "@django_secret_key",  // Variable de entorno para la clave secreta de Django (configúrala en Vercel)
+      "GOOGLE_API_KEY": "@google_drive_api_key"  // Variable de entorno para la clave de la API de Google Drive (configúrala en Vercel)
+    }
   }
