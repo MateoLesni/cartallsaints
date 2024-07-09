@@ -10,6 +10,7 @@ def menu_view(request):
     
     # Leer la ruta del archivo de credenciales desde la variable de entorno
     credentials_path = os.getenv('GOOGLE_APPLICATION_CREDENTIALS')
+    print('Credentials path:', credentials_path)  # Imprime la ruta de las credenciales
 
     # Cargar las credenciales desde el archivo JSON
     with open(credentials_path, 'r') as f:
