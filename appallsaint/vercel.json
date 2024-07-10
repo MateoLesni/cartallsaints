@@ -3,7 +3,8 @@
     "builds": [
       {
         "src": "appallsaint/wsgi.py",  // Ruta relativa al archivo manage.py dentro de tu repositorio
-        "use": "@vercel/python"  // Usamos el ambiente de Python de Vercel
+        "use": "@vercel/python",  // Usamos el ambiente de Python de Vercel
+        "config":{ "maxLambdaSize": "15mb", "runtime": "python3.9"}
       }
     ],
     "routes": [
@@ -13,7 +14,7 @@
       },
       {
         "src": "/(.*)",  // Captura todas las otras rutas
-        "dest": "/index.html"  // Puedes cambiar "/index.html" según la configuración de tu proyecto
+        "dest": "/menu.html"  // Puedes cambiar "/index.html" según la configuración de tu proyecto
       }
     ],
     "env": {
