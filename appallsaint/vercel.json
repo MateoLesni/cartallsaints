@@ -2,14 +2,14 @@
     "version": 2,
     "builds": [
       {
-        "src": "manage.py",  // Ruta relativa al archivo manage.py dentro de tu repositorio
+        "src": "appallsaint/wsgi.py",  // Ruta relativa al archivo manage.py dentro de tu repositorio
         "use": "@vercel/python"  // Usamos el ambiente de Python de Vercel
       }
     ],
     "routes": [
       {
-        "src": "/api/menu/(.*)",  // Ruta pública para la API de menú
-        "dest": "/api/menu/$1"  // Destino interno de la API de menú
+        "src": "(.*)",  // Ruta pública para la API de menú
+        "dest": "appallsaint/wsgi.py"  // Destino interno de la API de menú
       },
       {
         "src": "/(.*)",  // Captura todas las otras rutas
