@@ -60,4 +60,4 @@ def menu_view(request):
             categories[category] = []
         categories[category].append(item)
 
-    return render(request, 'menu.html', {'categories': categories})
+    return render(request, 'index.html', {'categories': categories})

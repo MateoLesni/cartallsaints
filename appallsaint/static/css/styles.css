@@ -1,0 +1,155 @@
+body {
+    margin: 0; /* Eliminar margen superior del body */
+    background-image: url();
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.navbar {
+    background-color: black;
+    color: white;
+    padding: 25px; /* Aumentar el padding para agrandar la navbar */
+    text-align: center;
+    font-size: 2.5rem; /* Aumentar el tamaño de la fuente */
+    font-weight: bold;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.header-image {
+    width: 100%;
+    height: 400px; /* Aumentar la altura de la imagen */
+    background-image: url('https://scontent.faep6-2.fna.fbcdn.net/v/t39.30808-6/308686025_510237651112153_3450732519907611778_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=WPzVNeTqj8AQ7kNvgG8HHKs&_nc_ht=scontent.faep6-2.fna&oh=00_AYD6bwfwICQ4_bmoDa_CoNoTqtvpzaaGtl1ttle2ll0LWw&oe=666D5D93'); /* URL de la imagen */
+    background-size: cover;
+    background-position: center;
+    margin: 0; /* Eliminar el margen superior para pegar la imagen a la navbar */
+    border-bottom: none; /* Eliminar cualquier borde inferior */
+    position: relative; /* Necesario para posicionar la superposición */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.4; /* Opacidad para el filtro negro */
+}
+
+.header-image-container {
+    margin: 0; /* Eliminar margen */
+    padding: 0; /* Eliminar padding */
+}
+
+h1 {
+    color: white;
+    font-size: 3.5rem; /* Aumentar el tamaño de la fuente */
+    margin: 0; /* Eliminar márgenes */
+    padding: 10px 0; /* Añadir padding superior e inferior */
+    text-align: center; /* Centrar el título */
+    font-family: 'Lobster', cursive; /* Aplicar la nueva fuente */
+    opacity: 0.7;
+}
+
+.accordion-container {
+    margin: 0; /* Eliminar margen superior */
+    padding: 0; /* Eliminar padding */
+}
+
+.accordion-item {
+    opacity: 1;
+    max-width: 600px; /* Aumentar el ancho máximo */
+    margin: 10px auto; /* Centrar y eliminar márgenes superiores e inferiores */
+    background-color: black;
+}
+
+.accordion-button {
+    color: white !important;
+    background-color: black !important;
+    text-align: center; /* Centrar el texto horizontalmente */
+    font-weight: bold;
+    width: 100%;
+    font-size: 1.4rem; /* Aumentar el tamaño de la fuente */
+    display: flex;
+    align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: grey !important;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+}
+
+.accordion-button::after {
+    filter: invert(1); /* Cambiar el color de la flecha a blanco */
+}
+
+.accordion-body {
+    background-color: white; /* Cambiar el fondo del contenido a blanco */
+    color: black; /* Cambiar el color del texto del contenido a negro */
+    font-size: 1.2rem; /* Aumentar el tamaño de la fuente */
+}
+
+.accordion-header {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente el contenido del header */
+}
+
+/* Estilo para el precio */
+.price {
+    background-color: black; /* Fondo negro */
+    color: white; /* Texto blanco */
+    border-radius: 0; /* Eliminar el borde redondeado */
+    padding: 6px 12px; /* Aumentar el padding */
+    display: inline-block;
+    font-size: 1.2rem; /* Aumentar el tamaño de la fuente */
+    font-weight: bold; /* Negrita */
+}
+
+/* Estilo para los elementos de la lista */
+.menu-item {
+    display: flex;
+    justify-content: space-between; /* Espacio entre los elementos */
+    align-items: center; /* Alinear verticalmente */
+    font-size: 1.2rem; /* Aumentar el tamaño de la fuente */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .header-image {
+        height: 300px; /* Altura ajustada para dispositivos móviles */
+    }
+
+    .navbar {
+        font-size: 2rem; /* Tamaño de fuente ajustado para la navbar en móviles */
+        padding: 20px; /* Aumentar el padding en móviles */
+    }
+
+    h1 {
+        font-size: 3rem; /* Tamaño de fuente ajustado para el título en móviles */
+        margin: 0; /* Eliminar márgenes */
+        padding: 10px 0; /* Añadir padding superior e inferior */
+    }
+
+    .accordion-item {
+        max-width: 100%; /* Ajustar el ancho máximo al 100% en dispositivos móviles */
+        margin: 10px; /* Margen alrededor del acordeón */
+    }
+
+    .price {
+        font-size: 1.1rem; /* Ajustar el tamaño de la fuente para los precios en móviles */
+        padding: 5px 10px; /* Ajustar el padding */
+    }
+
+    .menu-item {
+        flex-direction: column; /* Colocar los elementos de la lista en columna */
+        align-items: flex-start; /* Alinear los elementos al inicio */
+    }
+}
