@@ -2,20 +2,42 @@ import os
 from django.shortcuts import render
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
-import json
+from dotenv import load_dotenv
+
+# Cargar las variables de entorno desde el archivo .env
+load_dotenv()
 
 def menu_view(request):
     # Configura el alcance de la API y las credenciales
     scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
     
-    # Leer la ruta del archivo de credenciales desde la variable de entorno
-    credentials_path = os.getenv('GOOGLE_APPLICATION_CREDENTIALS')
-    print('Credentials path:', credentials_path)  # Imprime la ruta de las credenciales
+    # Obtener las variables de entorno
+    service_account_type = os.getenv('SERVICE_ACCOUNT_TYPE')
+    project_id = os.getenv('PROJECT_ID')
+    private_key_id = os.getenv('private_key_id')
+    private_key = os.getenv('private_key').replace('\\n', '\n')
+    client_email = os.getenv('client_email')
+    client_id = os.getenv('client_id')
+    auth_uri = os.getenv('auth_uri')
+    token_uri = os.getenv('token_uri')
+    auth_provider_x509_cert_url = os.getenv('auth_provider_x509_cert_url')
+    client_x509_cert_url = os.getenv('client_x509_cert_url')
 
-    # Cargar las credenciales desde el archivo JSON
-    with open(credentials_path, 'r') as f:
-        credentials_dict = json.load(f)
-    
+    # Construir las credenciales como un diccionario
+    credentials_dict = {
+        "type": service_account_type,
+        "project_id": project_id,
+        "private_key_id": private_key_id,
+        "private_key": private_key,
+        "client_email": client_email,
+        "client_id": client_id,
+        "auth_uri": auth_uri,
+        "token_uri": token_uri,
+        "auth_provider_x509_cert_url": auth_provider_x509_cert_url,
+        "client_x509_cert_url": client_x509_cert_url
+    }
+
+    # Crear las credenciales usando el diccionario
     credentials = ServiceAccountCredentials.from_json_keyfile_dict(credentials_dict, scope)
     client = gspread.authorize(credentials)
 

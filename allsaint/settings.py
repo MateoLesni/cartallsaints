@@ -18,9 +18,19 @@ from dotenv import load_dotenv
 
 # Carga las variables de entorno desde el archivo .env
 load_dotenv()
+service_account_type = os.getenv('SERVICE_ACCOUNT_TYPE')
+project_id = os.getenv('PROJECT_ID')
+private_key_id = os.getenv('private_key_id')
+private_key = os.getenv('private_key')
+client_email = os.getenv('client_email')
+client_id = os.getenv('client_id')
+auth_uri = os.getenv('auth_uri')
+token_uri = os.getenv('token_uri')
+auth_provider_x509_cert_url = os.getenv('auth_provider_x509_cert_url')
+client_x509_cert_url = os.getenv('client_x509_cert_url')
 
-# Obtén la ruta de las credenciales de Google desde las variables de entorno
-GOOGLE_APPLICATION_CREDENTIALS = os.getenv('GOOGLE_APPLICATION_CREDENTIALS')
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

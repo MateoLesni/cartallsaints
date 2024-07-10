@@ -1,4 +1,5 @@
-Django==4.2.13  # Asegúrate de poner la versión correcta que estás utilizando
-pandas==2.2.2  # Asegúrate de poner la versión correcta que estás utilizando
+Django==4.2.13
+pandas==2.2.2
 gspread==3.7.0
-oauth2client==4.1.3npm show bootstrap version
+oauth2client==4.1.3
+python-decouple==3.7
